@@ -1,0 +1,484 @@
+/* Base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  background-color: #fff;
+  color: #000;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Screen styles */
+.screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.screen.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Microsoft Logo */
+.ms-logo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 2px;
+  width: 24px;
+  height: 24px;
+}
+
+.square {
+  width: 100%;
+  height: 100%;
+}
+
+.red {
+  background-color: #f25022;
+}
+
+.green {
+  background-color: #7fba00;
+}
+
+.blue {
+  background-color: #00a4ef;
+}
+
+.yellow {
+  background-color: #ffb900;
+}
+
+.microsoft-text {
+  font-size: 20px;
+  font-weight: 500;
+  color: #333;
+  margin-left: 10px;
+}
+
+/* Preloader styles */
+#preloader {
+  background: linear-gradient(135deg, rgba(242,80,34,0.2) 0%, rgba(127,186,0,0.2) 25%, rgba(0,164,239,0.2) 50%, rgba(255,185,0,0.2) 75%, rgba(242,80,34,0.2) 100%);
+}
+
+.preloader-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.preloader-content .ms-logo {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 20px;
+}
+
+.preloader-content .microsoft-text {
+  font-size: 24px;
+  margin-left: 0;
+  margin-bottom: 30px;
+}
+
+.loading-bar {
+  width: 240px;
+  height: 4px;
+  background-color: #e6e6e6;
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+}
+
+.loading-progress {
+  position: absolute;
+  height: 100%;
+  background: linear-gradient(90deg, #0078d4, #106ebe);
+  animation: loading 2s infinite linear;
+}
+
+@keyframes loading {
+  0% {
+    width: 0%;
+    left: 0;
+  }
+  50% {
+    width: 100%;
+    left: 0;
+  }
+  100% {
+    width: 0%;
+    left: 100%;
+  }
+}
+
+/* Background screen styles */
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('img/hsbcreceipt.webp');
+  background-size: contain;
+  background-position: center;
+  opacity: 0;
+  animation: fadeIn 0.5s ease forwards;
+  background-repeat: no-repeat;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Session timeout styles */
+.timeout-container {
+  background-color: white;
+  padding: 40px;
+  border-radius: 4px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+}
+
+.timeout-container .ms-logo {
+  width: 40px;
+  height: 40px;
+  margin: 0 auto 10px;
+}
+
+.timeout-container .microsoft-text {
+  margin-left: 0;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.timeout-message h2 {
+  font-weight: 500;
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+
+.timeout-message p {
+  color: #666;
+  font-size: 14px;
+}
+
+/* Login screen styles */
+#login-screen {
+  background: linear-gradient(135deg, rgba(242,80,34,0.2) 0%, rgba(127,186,0,0.2) 25%, rgba(0,164,239,0.2) 50%, rgba(255,185,0,0.2) 75%, rgba(242,80,34,0.2) 100%);
+}
+
+.login-container {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  padding: 0 5px;
+}
+
+
+.login-form-container {
+  background-color: white;
+  padding: 48px;
+  border-radius: 4px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+}
+
+.form-section {
+  display: none;
+}
+
+.form-section.active {
+  display: block;
+}
+
+.form-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+  text-align: left;
+}
+
+.sign-in-header {
+  font-weight: 500;
+  font-size: 24px;
+  margin: 16px 0 24px;
+  color: #1b1b1b;
+}
+
+.input-group {
+  margin-bottom: 16px;
+  position: relative;
+}
+
+input {
+  width: 100%;
+  padding: 6px 0;
+  font-size: 15px;
+  border: none;
+  outline: none;
+  background: transparent;
+}
+
+.input-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #e1e1e1;
+  transition: all 0.3s ease;
+}
+
+input:focus + .input-line {
+  height: 2px;
+  background-color: #0078d4;
+}
+
+.create-account, .forgot-password {
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+
+.create-account a, .forgot-password a, .access-link, .signin-options {
+  color: #0067b8;
+  text-decoration: none;
+}
+
+.create-account a:hover, .forgot-password a:hover, .access-link:hover, .signin-options:hover {
+  color: #004e8c;
+  text-decoration: underline;
+}
+
+.form-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.form-footer-links {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.form-footer-buttons {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.next-button, .signin-button {
+  background-color: #0078d4;
+  color: white;
+  border: none;
+  padding: 8px 26px;
+  font-size: 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.2s;
+  margin-top: 20px;
+  font-weight: 700;
+}
+
+.next-button:hover, .signin-button:hover {
+  background-color: #106ebe;
+}
+
+.next-button svg, .signin-button svg {
+  margin-left: 8px;
+}
+
+.back-button {
+  background: none;
+  border: none;
+  color: #0067b8;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  margin-bottom: 16px;
+}
+
+.back-button:hover {
+  color: #004e8c;
+  text-decoration: underline;
+}
+
+.back-button svg {
+  margin-right: 8px;
+}
+
+.signin-options {
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+}
+
+.signin-options svg {
+  margin-right: 8px;
+}
+
+/* Modal styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background-color: #fff;
+  max-width: 440px;
+  width: 90%;
+  border-radius: 4px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  animation: modalFadeIn 0.3s ease;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal-header {
+  padding: 20px;
+  border-bottom: 1px solid #e1e1e1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-header h2 {
+  font-size: 18px;
+  font-weight: 500;
+  color: #1b1b1b;
+}
+
+.close-modal {
+  font-size: 24px;
+  cursor: pointer;
+  color: #666;
+}
+
+.modal-body {
+  padding: 20px;
+}
+
+.modal-body p {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #333;
+}
+
+.modal-body a {
+  color: #0067b8;
+  text-decoration: none;
+}
+
+.modal-body a:hover {
+  text-decoration: underline;
+}
+
+.modal-footer {
+  padding: 15px 20px;
+  text-align: right;
+  border-top: 1px solid #e1e1e1;
+}
+
+.try-again-button {
+  background-color: #0078d4;
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: background-color 0.2s;
+}
+
+.try-again-button:hover {
+  background-color: #106ebe;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .login-form-container {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 320px) {
+  .login-form-container {
+    padding: 16px;
+  }
+  
+  .sign-in-header {
+    font-size: 20px;
+  }
+}
+
+/* Animation enhancements */
+.fade-in {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.slide-up {
+  animation: slideUp 0.4s ease forwards;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.pulse {
+  animation: pulse 0.3s ease;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

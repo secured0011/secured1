@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+  }
+}
+
+@layer utilities {
+  .animate-loading-bar {
+    animation: loading-bar 2s infinite linear;
+  }
+}
+
+@keyframes loading-bar {
+  0% {
+    width: 0%;
+    left: 0;
+  }
+  50% {
+    width: 100%;
+    left: 0;
+  }
+  100% {
+    width: 0%;
+    left: 100%;
+  }
+}
